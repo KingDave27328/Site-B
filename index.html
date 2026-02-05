@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>House Of Movies</title>
+  <script src="tailwind.js/tailwind.js"></script>
+  <link rel="icon" href="img/house of movies logo.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+ <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
+/>
+</head>
+<style>
+
+.Preloader{
+      position: fixed;
+      background-color: white;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999999;
+      animation: hidePreloader 0.5s 2s forwards; 
+    }
+
+    .loader-gif{
+      width: 5%;
+      height: 10%;
+      margin-bottom: 20px;
+    }
+
+    @keyframes hidePreloader{
+      to{
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+
+  .swiper {
+  width: 100%;
+  height: 300px;
+}
+
+@media (min-width: 768px) {
+  .swiper {
+    width: 100%;
+    height: 450px;             
+  }
+}
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    background: transparent; /* remove background */
+  }
+
+  /* target SVG inside buttons */
+  .swiper-button-next svg path,
+  .swiper-button-prev svg path {
+    fill: #ff7300 !important;  /* arrow fill color */
+    stroke: #ff7300 !important;
+  }
+
+  /* or target image backgrounds */
+  .swiper-button-next,
+  .swiper-button-prev {
+    background-image: none !important;
+  }
+  .swiper-button-next,
+ .swiper-button-prev {
+    width: 45px;              /* size of the circle */
+    height: 45px;
+    border-radius: 50%;       /* makes it a circle */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 60%;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    font-size: 20px;          /* arrow size */
+    color: white !important;  /* arrow color */
+}
+
+</style>
+
+<body>
+  <div class="Preloader">
+    <img src="img/379.gif" alt="">
+  </div>
+
+  <!-- <div id="preloader">Loading...</div> -->
+  <!-- Modal -->
+<div id="modal1" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-[10000] p-4">
+  <div class="relative w-full max-w-5xl mx-auto">
+    
+    <!-- Close button (top-right) -->
+    <button id="close-modal" class="absolute top-4 right-4 text-white text-5xl z-10 hover:text-gray-400">×</button>
+
+    <!-- Image + Title on bottom-left -->
+    <div class="relative rounded-2xl overflow-hidden">
+      <img src="img/img2/sakamoto days 🚬.jpeg" alt="Sakamoto Days" class="w-full h-96 object-cover">
+
+      <div class="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent"></div>
+
+      <div class="absolute mt-40 bottom-0 left-0 p-6 md:p-10 w-full">
+        
+        
+        <div class="relative z-10 ">
+          <div class="flex gap-2">
+            <h1 class="text-4xl md:text-4xl font-extrabold text-red-600 drop-shadow-2xl">
+              SAKAMOTO
+            </h1>
+            <h1 class="text-4xl md:text-4xl font-extrabold text-white drop-shadow-2xl">
+              DAYS
+            </h1>
+          </div>
+          <p class="mt-2 text-lg md:text-md text-gray-200 font-medium drop-shadow-lg">
+            Season 1 • Action • Comedy • 2025
+          </p>
+
+          <!-- Buttons -->
+          <div class="mt-4 flex flex-wrap gap-4">
+            <button class="bg-orange-500 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-orange-600 hover:scale-105 hover:shadow-xl hover:shadow-orange-500/50 transition-all duration-300 flex items-center gap-3">
+              Play
+            </button>
+            <button class="border-2 border-orange-500 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-orange-500 hover:text-black hover:scale-105 transition-all duration-300">
+              + List
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Description below the image -->
+    <div class="text-white p-6 md:p-10 Description" style="background-image: linear-gradient(to top,rgb(136, 57, 1),rgb(255, 106, 0));">
+      <p class="md:text-lg max-w-4xl">
+        Taro Sakamoto was the ultimate assassin — feared by villains and admired by hitmen. 
+        But one day… he fell in love and retired to run a neighborhood store. 
+        Now his past is catching up, and his ordinary life is about to become extraordinary again.
+      </p>
+    </div>
+  </div>
+</div>
+
+  <!-- Modal2 -->
+<div id="modal2" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-[10000] p-4">
+  <div class="relative w-full max-w-5xl mx-auto">
+    
+    <!-- Close button (top-right) -->
+    <button id="close-modal2" class="absolute top-4 right-4 text-white text-5xl z-10 hover:text-gray-400">×</button>
+
+    <!-- Image + Title on bottom-left -->
+    <div class="relative rounded-2xl overflow-hidden">
+      <img src="img/img2/Untitled-1.jpg" alt="Sakamoto Days" class="w-full h-96 object-cover">
+
+      <div class="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent"></div>
+
+      <div class="absolute mt-40 bottom-0 left-0 p-6 md:p-10 w-full">
+        
+        
+        <div class="relative z-10 ">
+          <div class="flex gap-2">
+            <h1 class="text-4xl md:text-4xl font-extrabold text-red-600 drop-shadow-2xl">
+              DAN
+            </h1>
+            <h1 class="text-4xl md:text-4xl font-extrabold text-red-600 drop-shadow-2xl">
+              DAN DAN
+            </h1>
+          </div>
+          <p class="mt-2 text-lg md:text-md text-gray-200 font-medium drop-shadow-lg">
+            Season 1 • Action • Comedy • 2025
+          </p>
+
+          <!-- Buttons -->
+          <div class="mt-4 flex flex-wrap gap-4">
+            <button class="bg-orange-500 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-orange-700 flex items-center gap-3">
+              Play
+            </button>
+            <button class="border-2 border-orange-500 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-orange-500 transition">
+              + List
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Description below the image -->
+    <div class="text-white p-6 md:p-10 Description" style="background-image: linear-gradient(to top,rgb(136, 57, 1),rgb(255, 106, 0));">
+      <p class="md:text-lg max-w-4xl">
+        Momo Ayase believes in ghosts but not aliens. Ken Takakura believes in aliens but not ghosts. To settle the argument, they each visit a haunted hotspots, only to get attacked by both at once. Now this bickering duo must team up, wielding newfound supernatural powers, to fight yokai, extraterrestrials, and turbo-granny in the wildest paranormal rom-com ever.
+      </p>
+    </div>
+  </div>
+</div>
+
+</div>
+    <div class="bg-black">
+      <div class="mx-auto max-w-7xl">
+
+
+
+      <div class="top-0 left-0 w-full bg-black bg-opacity-70 fixed z-50 px-4 md:px-12 py-3">
+        <div class="mx-auto max-w-7xl">
+
+          <!-- Small screens: icon + logo + clock on one line, search below centered -->
+          <div class="flex md:hidden items-center justify-between gap-6">
+            <!-- Hamburger icon -->
+            <div class="flex items-center">
+              <i id="open" class="fa-solid fa-bars text-orange-600 text-2xl transition-all duration-300 hover:rotate-90 hover:scale-125 hover:text-orange-400"></i>
+            </div>
+
+            <!-- Logo + brand name (centered) -->
+            <div class="flex-1 flex justify-center items-center">
+              <a href="" class="flex items-center gap-3">
+                <img src="img/house of movies logo.png" alt="" class="w-8">
+                <h1 class="text-white text-base font-bold">HOUSE OF MOVIES</h1>
+              </a>
+            </div>
+
+            <!-- Clock icon -->
+            <div class="flex items-center ">
+              <i class="fa-solid fa-clock-rotate-left text-orange-600 text-2xl"></i>
+            </div>
+          </div>
+
+          <!-- Search bar – only visible on small screens, centered on next line -->
+          <div class="mt-3 md:hidden flex justify-center">
+            <div class="bg-gray-200 py-2 px-5 rounded-lg bg-opacity-30 text-gray-300 w-80 max-w-full text-center">
+              <a href=""><i class="fa-solid fa-magnifying-glass"></i> Search movies/TV Shows</a>
+            </div>
+          </div>
+
+          <!-- Desktop layout (unchanged) -->
+        <div class="hidden md:flex items-center justify-between">
+
+          <!-- Logo -->
+          <div class="flex items-center gap-3">
+            <img src="img/house of movies logo.png" alt="" class="w-10">
+            <h1 class="text-white text-xl font-bold">HOUSE OF MOVIES</h1>
+          </div>
+
+          <!-- Search bar on desktop -->
+          <div class="bg-gray-200 py-2 px-5 rounded-lg bg-opacity-30 text-gray-300 w-80">
+            <a href=""><i class="fa-solid fa-magnifying-glass"></i> Search movies/TV Shows</a>
+          </div>
+
+          <!-- Desktop buttons -->
+          <div class="flex gap-4">
+            <a href=""><div class="py-1 rounded-3xl px-3 text-sm font-bold transition-all text-white duration-300 hover:scale-105 hover:shadow-lg hover:shadow-orange-500/50" style="background-image: linear-gradient(to top,rgb(136, 57, 1),rgb(255, 106, 0));">
+                Download App
+              </div></a>
+                <a href=""><div class="bg-gray-500 text-white py-1 rounded-3xl px-3 text-sm font-bold transition-all duration-300 hover:bg-gray-600 hover:scale-105 hover:shadow-lg hover:shadow-gray-400/50">
+                  Watch History
+                </div></a>
+          </div>
+        </div>
+      </div>
+
+        </div>
+      <!-- <div class="top-0 left-0 w-full bg-black bg-opacity-70 fixed z-50 px-4 md:px-12 py-3">
+      <div class="max-w-7xl mx-auto flex items-center justify-between">
+        <button id="open" class="md:hidden text-orange-600 text-2xl">
+          <i class="fa-solid fa-bars transition-all duration-300 hover:rotate-90 hover:scale-125"></i>
+        </button>
+
+        <div class="flex items-center gap-3">
+          <img src="img/house of movies logo.png" alt="" class="w-10 md:w-12">
+          <h1 class="text-white md:text-xl text-base font-bold">HOUSE OF MOVIES</h1>
+        </div> -->
+
+        <!-- <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+          your desktop menu links here
+        </div>
+
+        <div class="hidden md:flex gap-4">
+          <div class="py-1 px-4 rounded-full text-sm font-bold bg-gradient-to-r from-orange-600 to-red-600 hover:brightness-110 transition">
+            Download App
+          </div>
+          <div class="py-1 px-4 rounded-full text-sm font-bold bg-gray-600 hover:bg-gray-700 transition">
+            Watch History
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+        <div class="flex min-h-screen w-full">
+
+          <!-- hamburger section -->
+          <div id="ham" class="text-white p-5 hidden z-50 md:mt-16 mt-[30%]">
+            <i class="fa-solid fa-x ml-44 mb-8 hover:text-orange-600" id="close"></i>
+            <div class="flex items-center text-sm mb-5 font-light">
+              
+              <select class="bg-black rounded p-2 border border-orange-500 text-white w-full">
+                <option value="" class="bg-black"><i class="fa-solid fa-globe text-orange-500"></i>English</option>
+                <option value="" class="bg-black">Yoruba</option>
+                <option class="bg-black">Japanese</option>
+                <option class="bg-black"><i class="fa-solid fa-globe text-orange-500"></i>korean</option>
+                <option class="bg-black"><i class="fa-solid fa-globe text-orange-500"></i>igbo</option>
+              </select>
+            </div>
+            <div class="grid gap-2">
+              <a href=""><div class="flex items-center gap-2 hover:bg-gray-500 rounded-md"><i class="fa-regular fa-house text-orange-500"></i><h1>Home</h1></div></a>
+              <a href=""><div class="flex items-center gap-2 hover:bg-gray-500 rounded-md"><i class="fa-solid fa-tv text-orange-500"></i><h1>TV Show</h1></div></a>
+              <a href=""><div class="flex items-center gap-2 hover:bg-gray-500 rounded-md"><i class="fa-solid fa-clapperboard text-orange-500"></i><h1>Movie</h1></div></a>
+              <a href=""><div class="flex items-center gap-2 hover:bg-gray-500 rounded-md"><i class="fa-solid fa-cow text-orange-500"></i><h1>Animation</h1></div></a>
+              <a href=""><div class="flex items-center gap-2 hover:bg-gray-500 rounded-md"><i class="fa-solid fa-baseball text-orange-500"></i><h1>Sport Live</h1></div></a>
+              <a href=""><div class="flex items-center gap-2 hover:bg-gray-500 rounded-md"><i class="fa-solid fa-book text-orange-500"></i><h1>Novel</h1></div></a>
+              <a href=""><div class="flex items-center gap-2 hover:bg-gray-500 rounded-md"><i class="fa-solid fa-award text-orange-500"></i><h1>Most Watched 🔥</h1></div></a>
+              <a href=""><div class="flex items-center gap-2 hover:bg-gray-500 rounded-md"><i class="fa-solid   fa-download text-orange-500"></i><h1>House of Movies App</h1></div></a>
+
+            </div>
+            <!-- socials -->
+            <div class="pt-3">
+              <div class="flex text-black gap-2 text-sm pr-20">
+              <a href=""><div class="bg-gray-400 rounded-3xl hover:bg-white"><i class="fa-brands fa-x-twitter"></i></div></a>
+              <a href=""><div class="bg-gray-400 rounded-3xl hover:bg-white"><i class="fa-brands fa-tiktok"></i></div></a>
+              <a href=""><div class="bg-gray-400 rounded-3xl hover:bg-white"><i class="fa-brands fa-facebook"></i></div></a>
+              <a href=""><div class="bg-gray-400 rounded-3xl hover:bg-white"><i class="fa-brands fa-whatsapp"></i></div></a>
+              <a href=""><div class="bg-gray-400 rounded-3xl hover:bg-white"><i class="fa-solid fa-share"></i></div></a>
+              
+            </div>
+            <div><a href=""><h3 class="text-sm pt-5 text-gray-300 font-light py-2">houseofmovies.ng@homovies.ng</h3></a></div>
+            <div><a href=""><h3 class="text-sm text-gray-300 font-light ">Always Find Us <i class="fa-regular fa-share-from-square"></i></h3></a></div>
+            <a href=""><div class="mt-6 py-2 rounded-3xl text-center mr-5 text-sm font-bold transition-all text-white duration-300 hover:scale-105 hover:shadow-lg hover:shadow-orange-500/50" style="background-image: linear-gradient(to top,rgb(136, 57, 1),rgb(255, 106, 0));">
+              <i class="fa-solid fa-download"></i>Download App<i class="fa-solid fa-qrcode"></i>
+            </div></a>
+            </div>
+          </div>
+
+
+          <div class="grid">
+            <div class="swiper mt-32 md:mt-0">
+              <!-- Additional required wrapper -->
+              <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide group">
+                  <img src="img/img2/download (3).jpeg" alt="">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent"></div>
+                  <h1 class="absolute bottom-5 left-5 font-extrabold text-3xl text-white drop-shadow-2xl transition-all duration-300 group-hover:scale-105 group-hover:text-orange-300">
+                    Eminence in The Shadow
+                  </h1>
+                </div>
+                <div class="swiper-slide group">
+                  <img src="img/img2/download (4).jpeg" alt="">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent"></div>
+                  <h1 class="absolute bottom-5 left-5 font-extrabold text-3xl text-white drop-shadow-2xl transition-all duration-300 group-hover:scale-105 group-hover:text-orange-400">
+                    FullMetal Alchemist
+                  </h1>
+                </div>
+                <div class="swiper-slide group">
+                  <img src="img/img2/download (5).jpeg" alt="">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent"></div>
+                  <h1 class="absolute bottom-5 left-5 font-extrabold text-3xl text-white drop-shadow-2xl transition-all duration-300 group-hover:scale-105 group-hover:text-orange-300">
+                    One Punch Man
+                  </h1>
+                </div>
+                <div class="swiper-slide group">
+                  <img src="img/img2/One Punch Man - Saitama Wallpaper.jpeg" alt="">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent"></div>
+                  <h1 class="absolute bottom-5 left-5 font-extrabold text-3xl text-white drop-shadow-2xl transition-all duration-300 group-hover:scale-105 group-hover:text-orange-300">
+                    One Punch Man
+                  </h1>
+                </div>
+                 <div class="swiper-slide group">
+                  <img src="img/img2/sakamoto days 🚬.jpeg" alt="">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent"></div>
+                  <h1 class="absolute bottom-5 left-5 font-extrabold text-3xl text-white drop-shadow-2xl transition-all duration-300 group-hover:scale-105 group-hover:text-orange-300">
+                    Sakamoto Days
+                  </h1>
+                </div>
+              </div>
+              <!-- If we need pagination -->
+              <div class="swiper-pagination"></div>
+
+              <!-- If we need navigation buttons -->
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-button-next"></div>
+
+              <!-- If we need scrollbar -->
+              <div class="swiper-scrollbar"></div>
+            </div>
+            
+            <!-- body -->
+        <div class="overflow-hidden w-full pl-1 md:pl-12">
+            <div class="text-white flex gap-0 md:gap-80 pt-5 pb-2">
+              <h1 class="flex text-2xl font-bold md:pl-5">Trending 🔥</h1>
+              <h1 class="flex relative md:left-[55%] left-[44%] items-center font-bold"><a class="text-gray-400 hover:text-orange-500 transition-colors duration-200 flex items-center gap-1 group" href="">More<i class="fa-solid fa-angle-right transform group-hover:translate-x-1 transition-transform duration-200"></i></a></h1>
+            </div>
+            <div class="flex gap-2 md:gap-5 overflow-hidden">
+              <div class="flex-none">
+                <img src="img/download (10).jpeg" id="open-modal1" class="w-32 hover:w-40 md:w-40 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-orange-500/50 hover:-translate-y-1" alt="">
+              </div>
+
+              <div class="flex-none">
+                <img src="img/download (11).jpeg" id="open-modal2" class="w-32 hover:w-40 md:w-40 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-orange-500/50 hover:-translate-y-1" alt="">
+              </div>
+              <div class="flex-none">
+                <a href="C:\Users\PC\Desktop\moviebox\file.html"><img src="img/download (12).jpeg" class="w-32 hover:w-40 md:w-40 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-orange-500/50 hover:-translate-y-1" alt=""></a>
+              </div>
+              <div class="flex-none">
+                <a href="C:\Users\PC\Desktop\moviebox\file.html"><img src="img/download (13).jpeg" class="w-32 hover:w-40 md:w-40 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-orange-500/50 hover:-translate-y-1" alt=""></a>
+              </div>
+              <div class="flex-none">
+                <a href="C:\Users\PC\Desktop\moviebox\file.html"><img src="img/download (14).jpeg" class="w-32 hover:w-40 md:w-40 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-orange-500/50 hover:-translate-y-1" alt=""></a>
+              </div>
+              <div class="flex-none">
+                <a href="C:\Users\PC\Desktop\moviebox\file.html"><img src="img/download (15).jpeg" class="w-32 hover:w-40 md:w-40 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-orange-500/50 hover:-translate-y-1" alt=""></a>
+              </div>
+              <div class="flex-none">
+                <a href="C:\Users\PC\Desktop\moviebox\file.html"><img src="img/download (16).jpeg" class="w-32 hover:w-40 md:w-40 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-orange-500/50 hover:-translate-y-1" alt=""></a>
+              </div>
+            </div>
+            <div>
+            <div class="text-white flex gap-0 md:gap-80 pt-5 pb-2">
+              <h1 class="flex text-2xl font-bold md:pl-5">Tragicomedy </h1>
+              <h1 class="flex relative md:left-[54%] left-[41%] items-center font-bold"><a class="text-gray-400 hover:text-orange-500 transition-colors duration-200 flex items-center gap-1 group" href="">More<i class="fa-solid fa-angle-right transform group-hover:translate-x-1 transition-transform duration-200"></i></a></h1>
+            </div>
+            <div class="flex gap-2 md:gap-5 overflow-hidden">
+              <div class="flex-none"><img src="img/download (17).jpeg" class="w-32 hover:w-40 md:w-40 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-orange-500/50 hover:-translate-y-1" alt=""></div>
+              <div class="flex-none"><img src="img/download (18).jpeg" class="w-32 hover:w-40 md:w-40 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-orange-500/50 hover:-translate-y-1" alt=""></div>
+              <div class="flex-none"><img src="img/download (3).jpeg" class="w-32 hover:w-40 md:w-40 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-orange-500/50 hover:-translate-y-1" alt=""></div>
+              <div class="flex-none"><img src="img/download (4).jpeg" class="w-32 hover:w-40 md:w-40 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-orange-500/50 hover:-translate-y-1" alt=""></div>
+              <div class="flex-none"><img src="img/download (5).jpeg" class="w-32 hover:w-40 md:w-40 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-orange-500/50 hover:-translate-y-1" alt=""></div>
+              <div class="flex-none"><img src="img/download (7).jpeg" class="w-32 hover:w-40 md:w-40 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-orange-500/50 hover:-translate-y-1" alt=""></div>
+              <div class="flex-none"><img src="img/download (8).jpeg" class="w-32 hover:w-40 md:w-40 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-orange-500/50 hover:-translate-y-1" alt=""></div>
+            </div>
+            <div>
+            <div class="text-white flex gap-0 md:gap-80 pt-5 pb-2">
+              <h1 class="flex text-2xl font-bold md:pl-5">Comedy </h1>
+              <h1 class="flex relative left-[55%] md:left-[58%] items-center font-bold"><a class="text-gray-400 hover:text-orange-500 transition-colors duration-200 flex items-center gap-1 group" href="">More<i class="fa-solid fa-angle-right transform group-hover:translate-x-1 transition-transform duration-200"></i></a></h1>
+            </div>
+            <div class="flex gap-2 md:gap-5 overflow-hidden">
+              <div class="flex-none"><img src="img/download (9).jpeg" class="w-32 hover:w-40 md:w-40 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-orange-500/50 hover:-translate-y-1" alt=""></div>
+              <div class="flex-none"><img src="img/Dr_Stone.jpeg" class="w-32 hover:w-40 md:w-40 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-orange-500/50 hover:-translate-y-1" alt=""></div>
+              <div class="flex-none"><img src="img/jujutsu kaisen.jpeg" class="w-32 hover:w-40 md:w-40 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-orange-500/50 hover:-translate-y-1" alt=""></div>
+              <div class="flex-none"><img src="img/Mashle_ Magic and Muscles.jpeg" class="w-32 hover:w-40 md:w-40 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-orange-500/50 hover:-translate-y-1" alt=""></div>
+              <div class="flex-none"><img src="img/Takopi's Original Sin ger dub.jpeg" class="w-32 hover:w-40 md:w-40 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-orange-500/50 hover:-translate-y-1" alt=""></div>
+              <div class="flex-none"><img src="img/TOKYO REVENGERS SEASON 3.jpeg" class="w-32 hover:w-40 md:w-40 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-orange-500/50 hover:-translate-y-1" alt=""></div>
+              <div class="flex-none"><img src="img/Topikos orginal sin.jpeg" class="w-32 hover:w-40 md:w-40 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-orange-500/50 hover:-translate-y-1" alt=""></div>
+            </div>
+            <div>
+            <div class="text-white flex gap-0 md:gap-80 pt-5 pb-2">
+              <h1 class="flex text-2xl font-bold md:pl-5">Horror</h1>
+              <h1 class="flex relative left-[58%] md:left-[59%] items-center font-bold"><a class="text-gray-400 hover:text-orange-500 transition-colors duration-200 flex items-center gap-1 group" href="">More<i class="fa-solid fa-angle-right transform group-hover:translate-x-1 transition-transform duration-200"></i></a></h1>
+            </div>
+            <div class="flex gap-2 md:gap-5 overflow-hidden">
+              <div class="flex-none"><img src="img/𝐇𝐮𝐧𝐭𝐞𝐫 𝐩𝐨𝐬𝐭𝐞𝐫.jpeg" class="w-32 hover:w-40 md:w-40 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-orange-500/50 hover:-translate-y-1" alt=""></div>
+              <div class="flex-none"><img src="img/𝘼𝙩𝙩𝙖𝙘𝙠 𝙤𝙣 𝙏𝙞𝙩𝙖𝙣.jpeg" class="w-32 hover:w-40 md:w-40 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-orange-500/50 hover:-translate-y-1" alt=""></div>
+              <div class="flex-none"><img src="img/🧪 Dr_ STONE 🧪.jpeg" class="w-32 hover:w-40 md:w-40 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-orange-500/50 hover:-translate-y-1" alt=""></div>
+              <div class="flex-none"><img src="img/download (13).jpeg" class="w-32 hover:w-40 md:w-40 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-orange-500/50 hover:-translate-y-1" alt=""></div>
+              <div class="flex-none"><img src="img/download (14).jpeg" class="w-32 hover:w-40 md:w-40 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-orange-500/50 hover:-translate-y-1" alt=""></div>
+              <div class="flex-none"><img src="img/download (15).jpeg" class="w-32 hover:w-40 md:w-40 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-orange-500/50 hover:-translate-y-1" alt=""></div>
+              <div class="flex-none"><img src="img/download (16).jpeg" class="w-32 hover:w-40 md:w-40 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-orange-500/50 hover:-translate-y-1" alt=""></div>
+            </div>
+        </div>
+          </div>  
+        </div>
+
+    </div>
+    
+    </div>
+    </div>  
+      
+    
+</body>
+<script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+<script>
+  const swiper = new Swiper('.swiper', {
+  direction: 'horizontal',
+  loop: true,
+
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false,
+  },
+
+  pagination: {
+    el: '.swiper-pagination',
+  },
+
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+
+  scrollbar: {
+    el: '.swiper-scrollbar',
+  },
+});
+
+setTimeout(function() {
+  document.getElementById('preloader').style.backgroundColor = 'orange';
+}, 3000);
+
+setTimeout(function() {
+  document.getElementById('preloader').style.backgroundColor = 'green';
+}, 6000);
+
+setTimeout(function() {
+  document.getElementById('preloader').style.backgroundColor = 'red';
+}, 9000);
+
+setTimeout(function() {
+  document.getElementById('preloader').style.display = 'none';
+}, 10000);
+</script>
+
+<script>
+  
+  document.getElementById('open-modal1').onclick=()=>
+  document.getElementById('modal1').style.display = 'flex'
+
+  document.getElementById('close-modal').onclick=()=>
+  document.getElementById('modal1').style.display = 'none'
+</script>
+
+<script>
+  
+  document.getElementById('open').onclick=()=>
+  document.getElementById('ham').style.display = 'block'
+
+  document.getElementById('close').onclick=()=>
+  document.getElementById('ham').style.display = 'none'
+</script>
+
+<script>
+  document.getElementById('open-modal2').onclick=()=>
+  document.getElementById('modal2').style.display = 'flex'
+
+  document.getElementById('close-modal2').onclick=()=>
+  document.getElementById('modal2').style.display = 'none'
+</script>
+</html>
